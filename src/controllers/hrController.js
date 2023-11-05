@@ -1,5 +1,6 @@
-const hrModel = require('../models/hr.model')
-const jwt = require('jsonwebtoken');
+import hrModel from '../models/hrModel.js'
+// import { createHr } from './hr.controller';
+// const jwt = require('jsonwebtoken');
 
 
 
@@ -7,7 +8,7 @@ const jwt = require('jsonwebtoken');
 
 
 
-const createHr = async (req, res) => {
+ const createHr = async (req, res) => {
     try {
         let {name,username, phone, email,img,hrId, password } = req.body
 
@@ -107,4 +108,5 @@ const createHr = async (req, res) => {
 
 // }
 // module.exports.login = login
-module.exports.createHr = createHr
+// module.exports.createHr = createHr
+export {createHr}

@@ -33,4 +33,5 @@ const HrSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Hr", HrSchema);
+const hrModel =  mongoose.model("Hr", HrSchema);
+export default hrModel
