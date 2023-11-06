@@ -7,31 +7,28 @@ const HrSchema = new mongoose.Schema(
       unique: true,
     },
     username: {
-        type: String,
-        required: true,
-        unique: true,
-      },
+      type: String,
+      required: true,
+      unique: true,
+    },
     email: {
       type: String,
       required: true,
       unique: true,
     },
-    // img: {
-    //   type: String,
-    // },
+
     phone: {
       type: String,
       required: true,
     },
-  
+
     password: {
       type: String,
       required: true,
     },
-   
   },
   { timestamps: true }
 );
 
-const hrModel =  mongoose.model("Hr", HrSchema);
-export default hrModel
+const hrModel = mongoose.model("Hr", HrSchema);
+export default hrModel;

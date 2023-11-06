@@ -7,10 +7,10 @@ const CandidateSchema = new mongoose.Schema(
       unique: true,
     },
     lname: {
-        type: String,
-        required: true,
-        unique: true,
-      },
+      type: String,
+      required: true,
+      unique: true,
+    },
     email: {
       type: String,
       required: true,
@@ -24,40 +24,40 @@ const CandidateSchema = new mongoose.Schema(
       required: true,
     },
     experienceCallProcess: {
-        type: String,
-        required: true,
-        unique: true,
-      },
+      type: String,
+      required: true,
+      unique: true,
+    },
     language: {
       type: String,
       required: true,
     },
     profile: {
-        type: String,
-        enum: ["Experience","Fresher"],
-        required: true,
-      },
+      type: String,
+      enum: ["Experience", "Fresher"],
+      required: true,
+    },
+    // ADD Enum in status Like Terminated,Active,Rejected etc
     status: {
-        type: String,
-        required: true,
-      },
-      dateOfAdd: {
-        type: Date,
-        required: true,
-      },
-      dateOfSelection: {
-        type: Date,
-        required: true,
-      },
-      dateOfjoining: {
-        type: Date,
-        required: true,
-      },
-      completionOfCompanyLockIn: {
-        type: Date,
-        required: true,
-      },
-   
+      type: String,
+      required: true,
+    },
+    dateOfAdd: {
+      type: Date,
+      required: true,
+    },
+    dateOfSelection: {
+      type: Date,
+      required: true,
+    },
+    dateOfjoining: {
+      type: Date,
+      required: true,
+    },
+    completionOfCompanyLockIn: {
+      type: Date,
+      required: true,
+    },
   },
   { timestamps: true }
 );
