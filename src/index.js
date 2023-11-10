@@ -1,6 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
-import router from "./routes/hrRoute.js";
+import hrrouter from "./routes/hrRoute.js";
+import userrouter from "./routes/user.route.js"
+import comrouter from "./routes/company.route.js";
+import candidateRouter from "./routes/candidate.route.js";
 import mongoose from "mongoose";
 const app = express();
 
@@ -21,11 +24,13 @@ mongoose
   .then(() => console.log("MongoDb is connected"))
   .catch((err) => console.log("mongoose connection error", err));
 
-// app.use('/api/hr', router);
-
-app.get("/", function (req, res) {
-  res.send("Hello World");
-});
+app.use('/', hrrouter);
+// app.use('/',userrouter);
+app.use('/',comrouter);
+app.use('/',candidateRouter);
+// app.get("/", function (req, res) {
+//   res.send("Hello World");
+// });
 
 app.use((req, res) => {
   var err = new Error("Not Found");

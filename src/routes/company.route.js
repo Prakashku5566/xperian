@@ -1,8 +1,8 @@
 import express from "express";
-const router = express.Router();
-const companyController = require("../controllers/company.controller");
+const comrouter = express.Router();
+import {createCompany} from "../controllers/company.controller.js";
 // const midAuth = require ("../middleware/auth")
 
-router.post("/api/company", companyController.createCompany);
+comrouter.post("/api/company", createCompany);
 
-module.exports = router;
+export default comrouter;

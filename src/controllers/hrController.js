@@ -46,7 +46,7 @@ const createHr = async (req, res) => {
         .status(400)
         .send({ status: false, msg: "Please Enter valid phone Number" });
     }
-    let existphone = await userModel.findOne({ phone: phone });
+    let existphone = await hrModel.findOne({ phone: phone });
     if (existphone) {
       return res
         .status(400)
@@ -70,7 +70,7 @@ const createHr = async (req, res) => {
         .send({ status: false, msg: "Please Enter valid Email" });
     }
 
-    let existEmail = await userModel.findOne({ email: email });
+    let existEmail = await hrModel.findOne({ email: email });
     if (existEmail) {
       return res
         .status(400)
@@ -80,15 +80,15 @@ const createHr = async (req, res) => {
         });
     }
 
-    if (!img) {
-      return res
-        .status(400)
-        .send({ status: false, msg: "please add the profile picture" });
-    }
+    // if (!img) {
+    //   return res
+    //     .status(400)
+    //     .send({ status: false, msg: "please add the profile picture" });
+    // }
 
-    if (!hrId) {
-      return res.status(400).send({ status: false, msg: "Enter the hrId" });
-    }
+    // if (!hrId) {
+    //   return res.status(400).send({ status: false, msg: "Enter the hrId" });
+    // }
     if (!password) {
       return res
         .status(400)
@@ -115,32 +115,31 @@ const createHr = async (req, res) => {
 
 //==========================================UserLOgin========================//
 
-// const login = async (req, res) => {
-//     try {
+const login = async (req, res) => {
+    try {
 
-//         const { email, password } = req.body
-//         if (!email) {
-//             return res.status(400).send({ status: false, msg: "Email is mandatory for logging In" })
-//         }
+        const { email, password } = req.body
+        if (!email) {
+            return res.status(400).send({ status: false, msg: "Email is mandatory for logging In" })
+        }
 
-//         if (!password) {
-//             return res.status(400).send({ status: false, msg: "Please enter password. It is Mandatory" })
-//         }
-//         let data = await userModel.findOne({ email: email, password: password })
+        if (!password) {
+            return res.status(400).send({ status: false, msg: "Please enter password. It is Mandatory" })
+        }
+        let data = await userModel.findOne({ email: email, password: password })
 
-//         if (!data) {
-//             return res.status(400).send({ status: false, msg: "Email or Password is incorrect.Please recheck it" })
-//         }
-//     //    console.log(data)
-//         let token = await jwt.sign({ id: data._id.toString() }, "XPERION REQRUIMENT SERVICE", { expiresIn: '24hr' })
-//          res.header({ "x-api-key": token })
-//        return res.status(200).send({ status: true, message: "Login Successful", data: token })
-//     }
-//     catch (err) {
-//        return res.status(500).send({ error: err.message });
-//     }
+        if (!data) {
+            return res.status(400).send({ status: false, msg: "Email or Password is incorrect.Please recheck it" })
+        }
+    //    console.log(data)
+        let token = await jwt.sign({ id: data._id.toString() }, "XPERION REQRUIMENT SERVICE", { expiresIn: '24hr' })
+         res.header({ "x-api-key": token })
+       return res.status(200).send({ status: true, message: "Login Successful", data: token })
+    }
+    catch (err) {
+       return res.status(500).send({ error: err.message });
+    }
 
-// }
-// module.exports.login = login
-// module.exports.createHr = createHr
-export { createHr };
+}
+
+ export { createHr,login };

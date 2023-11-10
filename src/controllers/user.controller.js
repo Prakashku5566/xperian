@@ -1,4 +1,5 @@
-const userModel = require("../models/user.model");
+
+import userModel from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 
 //==============================createUser=====================================//
@@ -121,5 +122,5 @@ const login = async (req, res) => {
     return res.status(500).send({ error: err.message });
   }
 };
-module.exports.login = login;
-module.exports.createUser = createUser;
+
+export {createUser,login}

@@ -1,4 +1,4 @@
-const companyModel = require("../models/company.model");
+import companyModel from "../models/company.model.js";
 
 //==============================createUser=====================================//
 
@@ -52,7 +52,7 @@ const createCompany = async (req, res) => {
         .send({ status: false, msg: "Please Enter valid phone Number" });
     }
 
-    let existphone = await userModel.findOne({ phone: phone });
+    let existphone = await companyModel.findOne({ phone: phone });
     if (existphone) {
       return res
         .status(400)
@@ -76,7 +76,7 @@ const createCompany = async (req, res) => {
         .send({ status: false, msg: "Please Enter valid Email" });
     }
 
-    let existEmail = await userModel.findOne({ email: email });
+    let existEmail = await companyModel.findOne({ email: email });
     if (existEmail) {
       return res
         .status(400)
@@ -125,7 +125,7 @@ const createCompany = async (req, res) => {
     }
     if (
       ![
-        "Meta/Enlish",
+        "Meta/English",
         "PPC/English",
         "Meta/Spanish",
         "PPC/Spanish",
@@ -136,15 +136,15 @@ const createCompany = async (req, res) => {
         .status(400)
         .send({
           status: false,
-          msg: " callProcess must be type of ['Meta/Enlish','PPC/English','Meta/Spanish','PPC/Spanish','bilingual']",
+          msg: " callProcess must be type of ['Meta/English','PPC/English','Meta/Spanish','PPC/Spanish','bilingual']",
         });
     }
 
-    if (!siftTiming) {
-      return res
-        .status(400)
-        .send({ status: false, msg: "Please mentioned the siftTiming" });
-    }
+    // if (!siftTiming) {
+    //   return res
+    //     .status(400)
+    //     .send({ status: false, msg: "Please mentioned the siftTiming" });
+    // }
     if (!workingDays) {
       return res
         .status(400)
@@ -190,4 +190,4 @@ const createCompany = async (req, res) => {
   }
 };
 
-module.exports.createCompany = createCompany;
+export {createCompany};

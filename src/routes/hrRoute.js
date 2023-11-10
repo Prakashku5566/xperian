@@ -1,11 +1,11 @@
 import express from "express";
-const router = express.Router();
+const hrrouter = express.Router();
 import { createHr } from "../controllers/hrController.js";
 // const midAuth = require ("../middleware/auth")
 
-router.post("/", createHr);
+hrrouter.post("/api/hr", createHr);
 
 //  Login Api ------------------------------------------------
 // router.post('/hr',hrController.createHr)
 
-export default router;
+export default hrrouter;

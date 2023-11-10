@@ -34,8 +34,8 @@ const CompanySchema = new mongoose.Schema(
     },
     callProcess: {
       type: String,
-      enum: [
-        "Meta/Enlish",
+      enum:[ 
+        "Meta/English",
         "PPC/English",
         "Meta/Spanish",
         "PPC/Spanish",
@@ -43,10 +43,10 @@ const CompanySchema = new mongoose.Schema(
       ],
       required: true,
     },
-    shiftTiming: {
-      type: String,
-      required: true,
-    },
+    // shiftTiming: {
+    //   type: String,
+    //   required: true,
+    // },
     workingDays: {
       type: String,
       required: true,
@@ -56,23 +56,38 @@ const CompanySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    // TODO :ADD Boolean here
+  
     cab: {
       type: String,
+      enum: [
+       "yes",
+       "no",
+       "included",
+       "depends on route"
+      ],
       required: true,
     },
-    // TODO :ADD Boolean here
+  
     meals: {
       type: String,
+      enum: [
+       "yes",
+       "no",
+       "included"
+      ],
       required: true,
     },
-    // check if this can enum how many types of interview proccess
+    
     interviewProcess: {
       type: String,
+      enum: [
+       "face to face",
+       "telephonic"
+      ],
       required: true,
     },
     interviewTiming: {
-      type: String,
+      type:String,
       required: true,
     },
   },

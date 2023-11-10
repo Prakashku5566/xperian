@@ -1,8 +1,8 @@
-const userModel = require("../models/user.model");
+import canndidateModel from "../models/canndidate.model.js"
 
 //==============================createUser=====================================//
 
-const createUser = async (req, res) => {
+const createCandidate = async (req, res) => {
   try {
     let {
       fname,
@@ -54,7 +54,7 @@ const createUser = async (req, res) => {
         .send({ status: false, msg: "Please Enter valid phone Number" });
     }
 
-    let existphone = await userModel.findOne({ phone: phone });
+    let existphone = await canndidateModel.findOne({ phone: phone });
     if (existphone) {
       return res
         .status(400)
@@ -73,7 +73,7 @@ const createUser = async (req, res) => {
         .send({ status: false, msg: "Please Enter valid Email" });
     }
 
-    let existEmail = await userModel.findOne({ email: email });
+    let existEmail = await canndidateModel.findOne({ email: email });
     if (existEmail) {
       return res
         .status(400)
@@ -136,7 +136,7 @@ const createUser = async (req, res) => {
         });
     }
 
-    let savedData = await userModel.create(req.body);
+    let savedData = await canndidateModel.create(req.body);
     return res
       .status(201)
       .send({ status: true, message: "Success", data: savedData });
@@ -145,4 +145,4 @@ const createUser = async (req, res) => {
   }
 };
 
-module.exports.createUser = createUser;
+export {createCandidate} 
