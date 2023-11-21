@@ -26,6 +26,14 @@ const HrSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    isDeleted: {
+      type:Boolean, 
+      default: false
+    },
+    deletedAt: {
+      type:Date
+    }, 
+
   },
   { timestamps: true }
 );

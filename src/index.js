@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import hrrouter from "./routes/hrRoute.js";
-import userrouter from "./routes/user.route.js"
+import adminrouter from "./routes/user.route.js"
 import comrouter from "./routes/company.route.js";
 import candidateRouter from "./routes/candidate.route.js";
 import mongoose from "mongoose";
@@ -25,7 +25,7 @@ mongoose
   .catch((err) => console.log("mongoose connection error", err));
 
 app.use('/', hrrouter);
-// app.use('/',userrouter);
+app.use('/',adminrouter);
 app.use('/',comrouter);
 app.use('/',candidateRouter);
 // app.get("/", function (req, res) {

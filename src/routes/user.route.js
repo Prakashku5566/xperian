@@ -1,15 +1,17 @@
 import express from "express";
-const userrouter = express.Router();
+const adminrouter = express.Router();
 import {createUser,login} from "../controllers/user.controller.js";
 
 // const companyController = require("../controllers/company.controller")
 // const midAuth = require ("../middleware/auth")
 
-userrouter.post("/api/admin", createUser);
+adminrouter.post("/api/admin", createUser);
 
 //  Login Api ------------------------------------------------
-// userrouter.post("/api/login", login);
+adminrouter.post("/api/login", login);
 
 
-export default {userrouter};
+export default adminrouter;
+// export default login;
+
 // export default login;

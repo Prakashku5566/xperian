@@ -34,12 +34,19 @@ const CandidateSchema = new mongoose.Schema(
     },
     profile: {
       type: String,
-      enum: ["Experience", "Fresher"],
+      enum: [
+        "Experience",
+         "Fresher"
+        ],
       required: true,
     },
-    // ADD Enum in status Like Terminated,Active,Rejected etc
     status: {
       type: String,
+      enum: [
+       "Active",
+       "Rejected",
+       "Terminated"
+      ],
       required: true,
     },
     dateOfAdd: {
@@ -55,9 +62,20 @@ const CandidateSchema = new mongoose.Schema(
       required: true,
     },
     completionOfCompanyLockIn: {
-      type: Date,
+      type: String,
+      enum: [
+       "yes",
+       "no",
+      ],
       required: true,
     },
+    isDeleted: {
+      type:Boolean, 
+      default: false
+    },
+    deletedAt: {
+      type:Date
+    }, 
   },
   { timestamps: true }
 );
